@@ -1,0 +1,63 @@
+.CONTENEDORPR
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.DIV-INACTIVO{
+     display: none; 
+}
+.DIV-ACTIVO{
+    display: block; 
+}
+.BRAYAN{
+    border: 1px solid;
+    padding: 10px;
+    width: 50vw;
+}
+.BRAYAN div input {
+    height: 10vh;
+    width: 30vw;
+    margin: 8px;
+}
+.ENCABEZADO
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#LOGO2,#LOGO1
+{
+    width: 15vw  ;
+    
+}
+#NOMBREBIBLIO
+{
+    height: 3vh;
+    width: 30vw;
+    margin: 2px;
+}
+.botones{
+    border: 1px solid;
+    padding: 5px;
+    margin: 8px;
+    display: flex;
+    width: auto;
+    justify-content: end;
+}
+.botones button{
+    margin: 5px;
+}
+.MENU,ul
+{
+    margin: 3px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+}
+li{
+    margin: 5px;
+    text-decoration: none;
+}
+
