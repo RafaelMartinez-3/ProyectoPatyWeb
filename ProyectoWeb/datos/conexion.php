@@ -1,60 +1,39 @@
 <?php
 /**
- * Clase que manejarÃ¡ la conexiÃ³n a la BD
+ * Clase que manejará la conexión a la BD
  */
 class Conexion
 {
-    
-    private static $servidor = 'localhost' ;
-    private static $db = 'bd' ;
-    private static $usuario = 'postgres';
-    private static $password = 'F1104';
-    private static $puerto = '5432';
-    
-    //Referencia de la conexiÃ³n a la BD para que 
-    //si ocupamos transacciones podamos usar siempre la misma
-    //conexion
-    private static $conexion  = null;
+    private $conexion;
 
     /**
-     * No se permite realizar instancias de la clase
+     * Constructor de la clase que permite la conexión a la base de datos
      */
-    public function __construct() {
-        //Debido a que se usarÃ¡n miembros estÃ¡ticos evitamos hacer 
-        //instancias
-        exit('Instancia no permitida');
-    }
-    
-    /**
-     * Funcion que permite abrir una nueva conexion a la base de datos 
-     */
-    public static function conectar()
+    public function __construct($server, $puerto, $usuario, $contrasenia)
     {
-        //self permite hacer una referencia al elemento estÃ¡tico
-        //this permite hacer una referencia a un elemento de instancia
-        //Se verifica si ya hay una conexiÃ³n abierta
-        if (self::$conexion==null)
-        {     
-            try
-            {
-                self::$conexion =  new PDO( "pgsql:host=".self::$servidor.";port=".self::$puerto.";dbname=".self::$db, self::$usuario, self::$password); 
-                //self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
-                self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-            catch(PDOException $e)
-            {
-                exit($e->getMessage()); 
-            }
+        try {
+            $this->conexion = new PDO("pgsql:host=" . $server . ";port=" . $puerto, $usuario, $contrasenia);
+            $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "¡Conexión exitosa!";
+        } catch (PDOException $e) {
+            exit($e->getMessage());
+            return false;
         }
-        return self::$conexion;
+    }
+    /**
+     * Método que permite cerrar la conexión a la base de datos
+     */
+    public function desconectar()
+    {
+        $this->conexion = null;
     }
     
     /**
-     * Funcion que permite cerrar la conexion a la base de datos 
+     * Método que devuelve la conexión actual (para realizar operaciones directas si es necesario)
      */
-    public static function desconectar()
+    public function obtenerConexion()
     {
-        self::$conexion = null;
+        return $this->conexion;
     }
 }
 ?>
