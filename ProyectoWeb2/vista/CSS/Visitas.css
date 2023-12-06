@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    background-color: rgba(40, 167, 69);    ;
+    color: #fff;
+    padding: 1px;
+    margin-top: 5px; 
+}
+
+#fondo{
+    background-size: cover;
+    background-image: url('../IMAGENES/image.png');
+    filter: blur(5px);
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+    z-index: -1;
+    
+}
+
+
+form {
+    max-width: 100vh;
+    max-height: 100vh;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+label {
+    display: block;
+    color: rgb(255, 255, 255)
+}
+
+input,
+select {
+    width: 100%;
+    margin-top: 1px;
+    box-sizing: border-box;
+}
+button{
+    margin: 10px !important;
+}

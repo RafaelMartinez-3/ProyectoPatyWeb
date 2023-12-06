@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  color:white;
+  background-image: url("../IMAGENES/image.png") ;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input {
+  margin-bottom: 10px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px; 
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+.in-visible{
+  display: none!important;
+}
+.visible{
+  display: block!important;
+}
+.prin{
+  display: flex;
+  flex-direction: row;
+}
+.prin div{
+  margin: 10px;
+}
